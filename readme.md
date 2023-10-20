@@ -91,3 +91,11 @@ Podemos notar que, a diferencia del caso anterior, donde era necesario la creaci
 Hoy en dia debido a que los costos de almacenamiento son relativamente economicos y que, con el paso del tiempo, es comun que se requiera una mayor cantidad de espacio para almacenar datos, este tipo de estructura es muy practica. 
 
 __MongoDB optimiza el rendimiento__ de nuestra aplicacion, ya que al trabajar un _formato en comun (JSON)_ se reducen los tiempos de respuesta, es __facilmente escalable__ y es como para los desarrolladores, ya que no requiere la implementacion de consultas complejas para acceder a los datos.
+
+Al utilizar __websockets__, ya que funciona como un __servicio de red__, debemos indicar un numero de _puerto de destino_ ademas de la __direccion IP__ de nuestro servidor. En una instalacion local estos serian los datos:
+
+* __command__: mongodb (conexion)
+* __host__: localhost (127.0.0.1)
+* __port__: 27017 (registrado)
+* __username__: "" (no required)
+* __password__: "" (no required)

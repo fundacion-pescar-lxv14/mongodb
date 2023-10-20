@@ -59,3 +59,31 @@ Existen diferentes __motores de Base de datos relaciones__ y migrar la informaci
 * SQLite
 
 ### Documentos (NoSQL)
+
+Este tipo de Bases de datos, No relacional, almacena la informacion en archivos __BSON (Binary JavaScript Object Notation)__ donde se registran los datos en grupos de _clave/valor_. Estos pueden estar anidados y a diferencia de las bases de datos relaciones, se utilizan __colecciones__ de datos, en lugar tablas.
+
+```
+COLLECTION: ANIMALS
+[
+    {
+        name: "cliford",
+        specie: "perro",
+        color: "rojo"
+    },
+    {
+        name: "lassie",
+        specie: "perro",
+    },
+    {
+        name: "simba",
+        specie: "leon",
+        color: "marron"
+    },
+    {
+        name: "kimba",
+        specie: "leon",
+    },
+]
+```
+
+Podemos notar que, a diferencia del caso anterior, donde era necesario la creacion de relaciones para la optimizacion del espacio. En la bases de datos NoSQL, se prioriza el __tiempo de respuesta__ ya que el motor de base de datos no utiliza recursos para establecer restricciones, ni una estructura rigida.

@@ -1,0 +1,14 @@
+{
+    "username": "c215714n",
+    "email": "cristiandracedo@hotmail.com",
+    "userData": {
+        "firstName": "Cristian",
+        "lastName": "Racedo",
+        "age": 33,
+        "gender": "masculino",
+        "personalId": {
+            "type": "DNI",
+            "number": "35336446"
+        }
+    }
+}

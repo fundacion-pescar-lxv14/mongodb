@@ -9,3 +9,44 @@ Esto es una guia para los alumnos de la capacitacion de __Bases de datos NoSQL__
 ## Introduccion Bases de Datos
 
 ![Interaccion FronEnd, BackEnd y DB](assets/img/network.jpg)
+
+Estructura que se utiliza para organizar y contener datos, optimizando el espacio disponible. Pueden de diferentes tipos y su contenido se distribuye en base a uso o funcionamiento.
+
+### Relacional
+
+La informacion se estructura en tablas y la funcion de las mismas consiste en definir grupos de datos. Para optimizar el almacenamiento se definen restricciones y tablas que vinculan un elemento con otro, evitando asi la duplicidad de datos. Estas se componen de los siguientes elementos:
+
+* __Campos__(Columna): Conjunto de Datos de un mismo tipo
+* __Registros__(Fila): Conjunto de Datos asociados entre si
+* __Datos__(Celda): Minima porcion de Informacion
+
+```
+ANIMALS
+|id | name   | specie  | color  |
+|---|--------|---------|--------|
+|1  |clifford|    1    | 3      |
+|2  |lassie  |    1    | 4      |
+
+SPECIES             COLORS
+| id | name   |     | id | name   |
+|----|--------|     |----|--------|
+| 1  | perro  |     | 1  | rojo   |
+| 2  | gato   |     | 2  | verde  |
+| 3  | caballo|     | 3  | azul   |
+                    | 4  | marron |
+```
+
+En caso que necesitaramos mostrar el nombre, la especie y el color en un formato legible, deberiamos realizar una consulta de UNION para que nuestro servidor de base de datos combine los campos de las tablas que debe mostrar. En esta situacion solamente se ocupa espacio en memoria, para cargar temporalmente el valor de los nuevos campos.
+
+```
+SELECT a.name, s.name AS especie, c.name AS color 
+FROM animals
+JOIN species AS s ON s.id = a.specie
+JOIN colros AS c ON c.id = a.color;
+
+| name   | specie  | color  |
+|--------|---------|--------|
+|clifford|  perro  | rojo   |
+|lassie  |  1      | marron |
+
+```

@@ -50,3 +50,12 @@ JOIN colros AS c ON c.id = a.color;
 |lassie  |  1      | marron |
 
 ```
+
+Existen diferentes __motores de Base de datos relaciones__ y migrar la informacion de uno a otro es relativamente facil, debido a que manejan un mismo estandar, a pesar que su sintaxis sea levemente diferente. Entre los motores mas populares, podemos encontrar los siguientes.
+
+* MySQL
+* MariaDB
+* PostGree
+* SQL Server
+* Microsoft SQL
+* SQLite

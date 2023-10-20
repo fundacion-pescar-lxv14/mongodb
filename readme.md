@@ -21,19 +21,15 @@ La informacion se estructura en tablas y la funcion de las mismas consiste en de
 * __Datos__(Celda): Minima porcion de Informacion
 
 ```
-ANIMALS
-|id | name   | specie  | color  |
-|---|--------|---------|--------|
-|1  |clifford|    1    | 3      |
-|2  |lassie  |    1    | 4      |
-
-SPECIES             COLORS
-| id | name   |     | id | name   |
-|----|--------|     |----|--------|
-| 1  | perro  |     | 1  | rojo   |
-| 2  | gato   |     | 2  | verde  |
-| 3  | caballo|     | 3  | azul   |
-                    | 4  | marron |
+|TABLE:SPECIES|  |TABLE:COLORS |  |TABLE: ANIMALS                 |
+|id | name    |  | id | name   |  |id | name   | specie  | color  |
+|---|---------|  |----|--------|  |---|--------|---------|--------|
+| 1 | perro   |  | 1  | rojo   |  | 1 |clifford|    1    | 3      |
+| 2 | gato    |  | 2  | verde  |  | 2 |lassie  |    1    | 4      |
+| 3 | caballo |  | 3  | azul   |  | 3 |simba   |    5    | 4      |
+| 4 | delfin  |  | 4  | marron |  | 4 |kimba   |    5    | 6      |
+| 5 | leon    |  | 5  | violeta| 
+| 6 | tigre   |  | 6  | blanco |
 ```
 
 En caso que necesitaramos mostrar el nombre, la especie y el color en un formato legible, deberiamos realizar una consulta de UNION para que nuestro servidor de base de datos combine los campos de las tablas que debe mostrar. En esta situacion solamente se ocupa espacio en memoria, para cargar temporalmente el valor de los nuevos campos.
@@ -47,7 +43,9 @@ JOIN colros AS c ON c.id = a.color;
 | name   | specie  | color  |
 |--------|---------|--------|
 |clifford|  perro  | rojo   |
-|lassie  |  1      | marron |
+|lassie  |  perro  | marron |
+|simba   |  leon   | marron |
+|kimba   |  leon   | blanco |
 
 ```
 
@@ -59,3 +57,5 @@ Existen diferentes __motores de Base de datos relaciones__ y migrar la informaci
 * SQL Server
 * Microsoft SQL
 * SQLite
+
+### Documentos (NoSQL)

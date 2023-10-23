@@ -111,3 +111,27 @@ __comando:__ mongodb://localhost:27017
 | Value    | Value    |
 
 A diferencia de un sistema de bases de datos relacional, en MongoDB no es necesario que exista previamente una estructura para almacenar y organizar los datos, ya que esta sera creada al momento de realizar la operacion.
+
+## Operaciones CRUD
+
+| comando | descripcion |
+|---|---|
+| __show dbs__ | muestra todas las bases de datos que posean colecciones |
+| __use `<database>`__  | selecciona o crea la base de datos en caso que no exista |
+| __db.createCollection(`'name'`)__ | crea una coleccion de documentos en la base de datos actual |
+
+### CREATE
+
+Estas operaciones las utilizaremos en caso que necesitemos agregar elementos a la coleccion con la que estemos trabajando, una de las ventajas que tiene este motor de base de datos, es la creacion de la colleccion cuando insertamos objetos en la misma.
+
+| comando | descripcion |
+|--|--|
+| db.`<collection>`.insertOne(`{Object}`) | agrega un registro a la coleccion de documentos. |
+| db.`<collection>`.insertMany(`[ObjectArray]`) | agrega multiples registros a la coleccion. |
+| db.`<collection>`.insert(`{Object}`||`[ObjectArray]`) | agrega uno o multiples registros dependiendo del argumento. |
+
+### READ
+
+### UPDATE
+
+### DELETE

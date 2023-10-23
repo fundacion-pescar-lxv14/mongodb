@@ -142,4 +142,20 @@ cuando hayamos agregado algunos documentos a la coleccion, podremos consultarlos
 
 ### UPDATE
 
+En ocasiones en necesario modificar algunos de los documentos creados con anterioridad, para ello podemos utilizar el __metodo update()__ que permite modificar los valores o agregar claves a los objetos previamente cargados.
+
+| comando | descripcion |
+|--|--|
+|db.`<collection>`.updateOne(`{filter}`, `{Object}`) | actualiza el primer elemento que coincida con los criterios del filtro.
+|db.`<collection>`.updateMany(`{filter}`,`{Object}`) | actualiza todos los objetos que cumplan los requisitos del filtro.
+|db.`<collection>`.update(`{filter}`,`{Object}`) |  actualiza todos los documentos que cumplan los criterios de filtrado.
+
 ### DELETE
+
+En una base de datos de Documentos, podremos eliminar directamente aquellos objetos que no sean necesarios, ya que, normalmente, al no existir una relacion previa, no debemos preocuparnos por la integridad de las demas colecciones.
+
+| comando | descripcion |
+|--|--|
+|db.`<collection>`.dropOne(`{filter}`) | elimina el primer elemento que coincida con los criterios del filtro. |
+|db.`<collection>`.dropMany(`{filter}`) | elimina todos los documentos que coincidan los criterios de eliminacion. |
+|db.`<collection>`.drop(`{filter}`) | elimina todo lo que coincida con los criterios de filtrado.

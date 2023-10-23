@@ -1,0 +1,46 @@
+[
+    {
+        "postId": 1,
+        "postTitle": "Teclado Mecanico Redragon", 
+        "description": "el mejor teclado que vas a encontrar con piezas intercambiables",
+        "product": "teclado",
+        "categories": [ "tecnologia", "informatica" ],
+        "user": "c215714n",
+        "stock": 20,
+        "price": 49999.99,
+        "date": "2023-10-20"
+    },
+    {
+        "postId": 2,
+        "postTitle": "Taladro Percutor", 
+        "description": "taladro con multiples piezas intercambiables, potencia de 750W, 2 rotaciones, 10 velocidades y set de 150 piezas",
+        "product": "taladro",
+        "categories": [ "hogar", "herramientas" ],
+        "user": "d477714n",
+        "stock": 10,
+        "price": 85699.99,
+        "date": "2023-10-20"
+    },
+    {
+        "postId": 3,
+        "postTitle": "Escritorio ergonomico Moderno para Oficina", 
+        "description": "Te duele la espalda, cansado de tener que levantarte para estirar las piernas cada 30 minutos, con este escritorio ideal para las dimensiones humanas, no tendras mas problemas",
+        "product": "escritorio",
+        "categories": [ "muebles", "hogar" ],
+        "user": "Antonette",
+        "stock": 10,
+        "price": 150839.99,
+        "date": "2023-10-21"
+    },
+    {
+        "postId": 4,
+        "postTitle": "Samsung A34 256Gb con caja y accesorios", 
+        "description": "El telefono ideal para tu rutina, con 256Gb de almacenamiento, 8Gb de RAM, 4 camaras y una bateria de 5000mAh, no te quedes sin el tuyo",
+        "product": "smartphone",
+        "categories": [ "tecnologia", "informatica" ],
+        "user": "Samantha",
+        "stock": 1,
+        "price": 289999.99,
+        "date": "2023-10-21"
+    }
+]

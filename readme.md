@@ -126,9 +126,9 @@ Estas operaciones las utilizaremos en caso que necesitemos agregar elementos a l
 
 | comando | descripcion |
 |--|--|
-| db.`<collection>`.insertOne(`{Object}`) | agrega un registro a la coleccion de documentos. |
-| db.`<collection>`.insertMany(`[ObjectArray]`) | agrega multiples registros a la coleccion. |
-| db.`<collection>`.insert(`{Object}`||`[ObjectArray]`) | agrega uno o multiples registros dependiendo del argumento. |
+| __db.`<collection>`.insertOne(`{Object}`)__ | agrega un registro a la coleccion de documentos. |
+| __db.`<collection>`.insertMany(`[ObjectArray]`)__ | agrega multiples registros a la coleccion. |
+| __db.`<collection>`.insert(`[{Object}]`)__ | agrega uno o multiples registros dependiendo del argumento. |
 
 ### READ
 
@@ -136,9 +136,9 @@ cuando hayamos agregado algunos documentos a la coleccion, podremos consultarlos
 
 | comando | descripcion |
 |--|--|
-| db.`<collection>`.find()| muestra todos los documentos de la coleccion |
-| db.`<collection>`.findOne(`{filter}`) | muestra el primer objeto que coincida con los criterios de busqueda |
-| db.`<collection>`.find(`{filter}`) | muestra todos los objetos coincidentes. |
+| __db.`<collection>`.find()__| muestra todos los documentos de la coleccion |
+| __db.`<collection>`.findOne(`{filter}`)__ | muestra el primer objeto que coincida con los criterios de busqueda |
+| __db.`<collection>`.find(`{filter}`)__ | muestra todos los objetos coincidentes. |
 
 ### UPDATE
 
@@ -146,9 +146,9 @@ En ocasiones en necesario modificar algunos de los documentos creados con anteri
 
 | comando | descripcion |
 |--|--|
-|db.`<collection>`.updateOne(`{filter}`, `{Object}`) | actualiza el primer elemento que coincida con los criterios del filtro.
-|db.`<collection>`.updateMany(`{filter}`,`{Object}`) | actualiza todos los objetos que cumplan los requisitos del filtro.
-|db.`<collection>`.update(`{filter}`,`{Object}`) |  actualiza todos los documentos que cumplan los criterios de filtrado.
+| __db.`<collection>`.updateOne(`{filter}`, `{Object}`)__ | actualiza el primer elemento que coincida con los criterios del filtro.
+| __db.`<collection>`.updateMany(`{filter}`,`{Object}`)__ | actualiza todos los objetos que cumplan los requisitos del filtro.
+| __db.`<collection>`.update(`{filter}`,`{Object}`)__ |  actualiza todos los documentos que cumplan los criterios de filtrado.
 
 ### DELETE
 
@@ -156,6 +156,23 @@ En una base de datos de Documentos, podremos eliminar directamente aquellos obje
 
 | comando | descripcion |
 |--|--|
-|db.`<collection>`.dropOne(`{filter}`) | elimina el primer elemento que coincida con los criterios del filtro. |
-|db.`<collection>`.dropMany(`{filter}`) | elimina todos los documentos que coincidan los criterios de eliminacion. |
-|db.`<collection>`.drop(`{filter}`) | elimina todo lo que coincida con los criterios de filtrado.
+| __db.`<collection>`.dropOne(`{filter}`)__ | elimina el primer elemento que coincida con los criterios del filtro. |
+| __db.`<collection>`.dropMany(`{filter}`)__ | elimina todos los documentos que coincidan los criterios de eliminacion. |
+| __db.`<collection>`.drop(`{filter}`)__ | elimina todo lo que coincida con los criterios de filtrado.
+
+## FILTROS
+
+### Artimeticos
+
+Cuando necesitamos filtrar textos o valores numericos podemos implementar alguno de los nombres reservadores para este tipo de operadores, que definen el criterio a tener en cuenta al momento de evaluar el valor de referencia.
+
+| filtro | referencia | criterio | 
+|--|--|--|
+|$eq  | { _price_: 49999.99 } |  es igual a (por omision)  |
+|$ne  | { _price_: { __$ne__: 49999.99 } } |  no es igual a |
+|$gt  | { _stock_: { __$gt__: 200 } } |  mayor que (no incluye el valor) |
+|$gte | { _stock_: { __$gte__: 200 } } |  mayor o igual a (inclusive) |
+|$lt  | { _stock_: { __$lt__: 50 } } |  menor que (no incluye el valor) |
+|$lte | { _stock_: { __$lte__: 50 } } |  menor o igual a (inclusive) |
+|$in  | { _categories_: { __$in__: [ _'tecnologia'_, _'informatica'_ ] } } |  es algun valor de la lista |
+|$nin | { _categories_: { __$in__: [_'hogar'_, _'muebles'_ ] } } |  no es algun valor de la lista |

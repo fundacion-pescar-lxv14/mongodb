@@ -132,6 +132,14 @@ Estas operaciones las utilizaremos en caso que necesitemos agregar elementos a l
 
 ### READ
 
+cuando hayamos agregado algunos documentos a la coleccion, podremos consultarlos utilizando el __metodo find()__, al cual deberemos pasarle como parametro un objeto con los criterios de busqueda. Luego MongoDB realizar la comparacion de nuestro objeto con los documentos de la base de datos y devolvera los resultados coincidentes.
+
+| comando | descripcion |
+|--|--|
+| db.`<collection>`.find()| muestra todos los documentos de la coleccion |
+| db.`<collection>`.findOne(`{filter}`) | muestra el primer objeto que coincida con los criterios de busqueda |
+| db.`<collection>`.find(`{filter}`) | muestra todos los objetos coincidentes. |
+
 ### UPDATE
 
 ### DELETE

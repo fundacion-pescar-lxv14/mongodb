@@ -99,3 +99,15 @@ Al utilizar __websockets__, ya que funciona como un __servicio de red__, debemos
 * __port__: 27017 (registrado)
 * __username__: "" (no required)
 * __password__: "" (no required)
+
+__comando:__ mongodb://localhost:27017
+
+
+| SQL      | NoSQL    |
+|----------|----------|
+| Database | Database |
+| Table    | Collection |
+| Campo    | Key      |
+| Value    | Value    |
+
+A diferencia de un sistema de bases de datos relacional, en MongoDB no es necesario que exista previamente una estructura para almacenar y organizar los datos, ya que esta sera creada al momento de realizar la operacion.

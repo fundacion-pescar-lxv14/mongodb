@@ -107,6 +107,7 @@ __comando:__ mongodb://localhost:27017
 |----------|----------|
 | Database | Database |
 | Table    | Collection |
+| Registros| Documentos |
 | Campo    | Key      |
 | Value    | Value    |
 
@@ -119,6 +120,7 @@ A diferencia de un sistema de bases de datos relacional, en MongoDB no es necesa
 | __show dbs__ | muestra todas las bases de datos que posean colecciones |
 | __use `<database>`__  | selecciona o crea la base de datos en caso que no exista |
 | __db.createCollection(`'name'`)__ | crea una coleccion de documentos en la base de datos actual |
+| __show collections__ | lista las colecciones de documentos de la base de datos actual
 
 ### CREATE
 
@@ -149,6 +151,7 @@ En ocasiones en necesario modificar algunos de los documentos creados con anteri
 | __db.`<collection>`.updateOne(`{filter}`, `{Object}`)__ | actualiza el primer elemento que coincida con los criterios del filtro.
 | __db.`<collection>`.updateMany(`{filter}`,`{Object}`)__ | actualiza todos los objetos que cumplan los requisitos del filtro.
 | __db.`<collection>`.update(`{filter}`,`{Object}`)__ |  actualiza todos los documentos que cumplan los criterios de filtrado.
+| __db.`<collection>`.replaceOne(`{filter}`,`{object}`)__ | reemplaza un documento de la coleccion por otro objeto.
 
 ### DELETE
 
@@ -156,9 +159,9 @@ En una base de datos de Documentos, podremos eliminar directamente aquellos obje
 
 | comando | descripcion |
 |--|--|
-| __db.`<collection>`.dropOne(`{filter}`)__ | elimina el primer elemento que coincida con los criterios del filtro. |
-| __db.`<collection>`.dropMany(`{filter}`)__ | elimina todos los documentos que coincidan los criterios de eliminacion. |
-| __db.`<collection>`.drop(`{filter}`)__ | elimina todo lo que coincida con los criterios de filtrado.
+| __db.`<collection>`.drop()__ | elimina la coleccion de la base de datos
+| __db.`<collection>`.deleteOne(`{filter}`)__ | elimina el primer elemento que coincida con los criterios del filtro. |
+| __db.`<collection>`.deleteMany(`{filter}`)__ | elimina todos los documentos que coincidan los criterios de eliminacion. |
 
 ## FILTROS
 
@@ -175,4 +178,15 @@ Cuando necesitamos filtrar textos o valores numericos podemos implementar alguno
 |$lt  | { _stock_: { __$lt__: 50 } } |  menor que (no incluye el valor) |
 |$lte | { _stock_: { __$lte__: 50 } } |  menor o igual a (inclusive) |
 |$in  | { _categories_: { __$in__: [ _'tecnologia'_, _'informatica'_ ] } } |  es algun valor de la lista |
-|$nin | { _categories_: { __$in__: [_'hogar'_, _'muebles'_ ] } } |  no es algun valor de la lista |
+|$nin | { _categories_: { __$nin__: [_'hogar'_, _'muebles'_ ] } } |  no es algun valor de la lista |
+
+## Logicos
+
+cuando necesitamos devolver valores en base a multiples condiciones, que pueden ser o no excluyentes podemos utilizar los siguiente operadores, que evaluaran toda la expresion e identificaran aquellos documentos que cumplan con los criterios.
+
+| filtro | referencia | criterio | 
+|--|--|--|
+|$and | { _price_: 85699.99, _stock_: 10 } | todas las condiciones se deben cumplir (por omision)  |
+|$or | { __$or__:[ { _price_: 85699.99}, {_stock_: 10 } ] } |  al menos una de las condiciones se debe cumplir |
+|$not | { __$not__:[ { _price_: 85699.99}, {_stock_: 10 } ] } | ninguna de las condiciones se debe cumplir |
+|$nor | { __$nor__:[ { _price_: 85699.99}, {_stock_: 10 } ] } | una de las condiciones debe cumplirse y la otra no |

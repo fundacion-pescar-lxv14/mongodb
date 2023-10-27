@@ -115,12 +115,16 @@ A diferencia de un sistema de bases de datos relacional, en MongoDB no es necesa
 
 ## Operaciones CRUD
 
+Cuando nos conectamos al servidor MongoDB ingresamos a la base de datos _test_
+
 | comando | descripcion |
 |---|---|
 | __show dbs__ | muestra todas las bases de datos que posean colecciones |
 | __use `<database>`__  | selecciona o crea la base de datos en caso que no exista |
 | __db.createCollection(`'name'`)__ | crea una coleccion de documentos en la base de datos actual |
 | __show collections__ | lista las colecciones de documentos de la base de datos actual
+| __db.`<collection>`__ | objeto necesario para la ejecucion de los metodos CRUD
+| __.drop()__ | elimina la coleccion de la base de datos |
 
 ### CREATE
 
@@ -128,9 +132,8 @@ Estas operaciones las utilizaremos en caso que necesitemos agregar elementos a l
 
 | comando | descripcion |
 |--|--|
-| __db.`<collection>`.insertOne(`{Object}`)__ | agrega un registro a la coleccion de documentos. |
-| __db.`<collection>`.insertMany(`[ObjectArray]`)__ | agrega multiples registros a la coleccion. |
-| __db.`<collection>`.insert(`[{Object}]`)__ | agrega uno o multiples registros dependiendo del argumento. |
+| __.insertOne(`{Object}`)__ | agrega un registro a la coleccion de documentos. |
+| __.insertMany(`[ObjectArray]`)__ | agrega multiples registros a la coleccion. |
 
 ### READ
 
@@ -138,9 +141,9 @@ cuando hayamos agregado algunos documentos a la coleccion, podremos consultarlos
 
 | comando | descripcion |
 |--|--|
-| __db.`<collection>`.find()__| muestra todos los documentos de la coleccion |
-| __db.`<collection>`.findOne(`{filter}`)__ | muestra el primer objeto que coincida con los criterios de busqueda |
-| __db.`<collection>`.find(`{filter}`)__ | muestra todos los objetos coincidentes. |
+| __.find()__| muestra todos los documentos de la coleccion |
+| __.find(`{filter}`)__ | muestra todos los objetos coincidentes. |
+| __.findOne(`{filter}`)__ | muestra el primer objeto que coincida con los criterios de busqueda |
 
 ### UPDATE
 
@@ -148,10 +151,9 @@ En ocasiones en necesario modificar algunos de los documentos creados con anteri
 
 | comando | descripcion |
 |--|--|
-| __db.`<collection>`.updateOne(`{filter}`, `{Object}`)__ | actualiza el primer elemento que coincida con los criterios del filtro.
-| __db.`<collection>`.updateMany(`{filter}`,`{Object}`)__ | actualiza todos los objetos que cumplan los requisitos del filtro.
-| __db.`<collection>`.update(`{filter}`,`{Object}`)__ |  actualiza todos los documentos que cumplan los criterios de filtrado.
-| __db.`<collection>`.replaceOne(`{filter}`,`{object}`)__ | reemplaza un documento de la coleccion por otro objeto.
+| __.updateOne(`{filter}`, `{Object}`)__ | actualiza el primer elemento que coincida con los criterios del filtro.
+| __.updateMany(`{filter}`,`{Object}`)__ | actualiza todos los objetos que cumplan los requisitos del filtro.
+| __.replaceOne(`{filter}`,`{object}`)__ | reemplaza un documento de la coleccion por otro objeto.
 
 ### DELETE
 
@@ -159,9 +161,8 @@ En una base de datos de Documentos, podremos eliminar directamente aquellos obje
 
 | comando | descripcion |
 |--|--|
-| __db.`<collection>`.drop()__ | elimina la coleccion de la base de datos
-| __db.`<collection>`.deleteOne(`{filter}`)__ | elimina el primer elemento que coincida con los criterios del filtro. |
-| __db.`<collection>`.deleteMany(`{filter}`)__ | elimina todos los documentos que coincidan los criterios de eliminacion. |
+| __.deleteOne(`{filter}`)__ | elimina el primer elemento que coincida con los criterios del filtro. |
+| __.deleteMany(`{filter}`)__ | elimina todos los documentos que coincidan los criterios de eliminacion. |
 
 ## FILTROS
 
@@ -182,7 +183,7 @@ Cuando necesitamos filtrar textos o valores numericos podemos implementar alguno
 
 ## Logicos
 
-cuando necesitamos devolver valores en base a multiples condiciones, que pueden ser o no excluyentes podemos utilizar los siguiente operadores, que evaluaran toda la expresion e identificaran aquellos documentos que cumplan con los criterios.
+cuando necesitamos devolver valores en base a __multiples condiciones__, que pueden ser o no excluyentes podemos utilizar los siguiente operadores, que evaluaran toda la expresion e identificaran aquellos documentos que cumplan con los criterios.
 
 | filtro | referencia | criterio | 
 |--|--|--|
@@ -190,3 +191,14 @@ cuando necesitamos devolver valores en base a multiples condiciones, que pueden 
 |$or | { __$or__:[ { _price_: 85699.99}, {_stock_: 10 } ] } |  al menos una de las condiciones se debe cumplir |
 |$not | { __$not__:[ { _price_: 85699.99}, {_stock_: 10 } ] } | ninguna de las condiciones se debe cumplir |
 |$nor | { __$nor__:[ { _price_: 85699.99}, {_stock_: 10 } ] } | una de las condiciones debe cumplirse y la otra no |
+
+## Claves
+
+Cuando necesitamos realizar una actualizacion, puede que necesitemos __cambiar la estructura de nuestros documentos__, para ello debemos utilizar los operadores que afectan tanto a las claves, como a los valores del objeto.
+
+| filtro | referencia | criterio | 
+|--|--|--| 
+|$inc | { __$inc__: {_price_: 500 } } | aumenta el valor del campo en la cantidad solicitada
+|$set | { __$set__: { _postDate_: new Date() } } | define el valor a modificar de un documento |
+|$unset | { __$unset__: {_post_: 1 } } | elimina la clave y su respectivo valor de un documento
+|$rename| { __$rename__: { `"userData"` : `"user"` } } | cambia el nombre de una de las clave de documento

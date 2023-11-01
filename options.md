@@ -52,7 +52,7 @@ corresponden a las operadores que se pueden utilizar cuando se implementa el __o
 
 Debido a que MongoDB esta __basado en documentos__, podemos darles la forma que necesitemos. Sin embargo, en ocasiones es necesario utilizar información de más de una colección, para ello podemos utilizar el __operador de busqueda relacional__, estableciendo cuales son los criterios que permiten vincular ambas colecciones.
 
-| clave | ejemplo | descripcion |
+| clave | referencia | descripcion |
 |--|--|--|
 | from | __from:__ `posts` | define la coleccion a vincular de la cual se obtendran los datos |
 | localField | __localField:__ `username` | identifica la clave local o campo relacional |

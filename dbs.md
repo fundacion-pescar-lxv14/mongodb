@@ -94,6 +94,7 @@ Al utilizar __websockets__, ya que funciona como un __servicio de red__, debemos
 * __password__: "" (no required)
 
 __comando:__ mongodb://localhost:27017
+__comando:__ mongodb+srv://username:password@serverUrl
 
 
 | SQL      | NoSQL    |

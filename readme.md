@@ -10,3 +10,5 @@ Esto es una guia para los alumnos de la capacitacion de __Bases de datos NoSQL__
 * [Introduccion a Bases de Datos](./dbs.md)
 * [Metodos CRUD (CREATE READ UPDATE DELETE)](./crud.md)
 * [Filtros y Tipos de operadores](./filter.md)
+* [Metodos y Opciones de Consulta](./options.md)
+* [Caracteristicas Cluster de Datos](./cluster.md)

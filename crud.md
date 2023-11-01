@@ -9,7 +9,6 @@ Cuando nos conectamos al servidor MongoDB ingresamos a la base de datos _test_, 
 * [UPDATE: Modificacion de Documentos](#update)
 * [DELETE: Eliminacion de Documentos](#delete)
 
-
 | comando | descripcion |
 |---|---|
 | __show dbs__ | muestra todas las bases de datos que posean colecciones |

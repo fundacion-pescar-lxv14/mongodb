@@ -9,14 +9,6 @@ db.createCollection ( "invoice", {
                     bsonType: ["string"],
                     description: "la factura consta de letras y numeros, por eso debe ser string y ademas es obligatoria, en caso que se necesite realizar algun reclamo"
                 },
-                seller:{
-                    bsonType: ["object"],
-                    description: "el vendedor es un objeto que contiene el nombre y apellido del vendedor"
-                },
-                customer: {
-                    bsonType: ["object"],
-                    description: "el cliente es un objeto que contiene el nombre y apellido del cliente"
-                },
                 date: {
                     bsonType: "date",
                     description: "fecha de la factura"

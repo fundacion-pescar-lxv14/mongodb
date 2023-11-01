@@ -28,3 +28,5 @@ Por ejemplo: Si tenemos 4 servidores, con una capacidad de almacenamiento de 256
 * sh.addShard(`"191.186.34.60::27017"`)
 * sh.addShard(`"shard_server.com::27017"`)
 * sh.enableSharding(`"pescar_shop"`)
+
+[Volver al inicio](./readme.md)

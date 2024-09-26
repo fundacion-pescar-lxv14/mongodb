@@ -44,10 +44,6 @@ Cuando necesitamos realizar una actualizacion, puede que necesitemos __cambiar l
 |$unset | { __$unset__: { _post_: 1 } } | elimina la clave y su respectivo valor de un documento
 |$rename| { __$rename__: { `"userData"` : `"user"` } } | cambia el nombre de una de las clave de documento
 
-### ELEMENTOS
-
-| filtro| referencia ||
-
 ### ARREGLOS
 
 En ciertas ocasiones nuestros objetos tendran como valor una _lista numerada de elementos (array)_ y por lo tanto, si necesitamos actualizar la misma, no podemos utilizar directamente el operador $set, ya que reemplazariamos una clave y valor por otros. Para ello existen los operadores de arreglos.
